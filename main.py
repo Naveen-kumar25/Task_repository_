@@ -124,7 +124,7 @@ def reset_password(email:str, dep: Session = Depends(get_db)):
     server.quit()
 
 @app.post("/set-new-password")
-def set_new_password(email: str,new_password: str, dep: Session = Depends(get_db)):
+def set_new_password (email: str,new_password: str, dep: Session = Depends(get_db)):
     user = dep.query(User).filter(User.email == email ).first()
 
     if not user :
